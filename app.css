@@ -100,6 +100,9 @@ h2{font:500 clamp(40px,4.4vw,68px)/1.02 Playfair Display,serif;letter-spacing:-.
 .price{font:300 13px DM Mono;letter-spacing:.18em;margin-bottom:27px}
 .reserve{display:inline-flex;align-items:center;gap:65px;padding:17px 18px 17px 24px;border-radius:999px;background:var(--ivory);color:#111;cursor:pointer;font:500 9px DM Mono;letter-spacing:.13em;text-transform:uppercase;transition:.35s var(--ease)}
 .reserve i{font-style:normal;font-size:17px}.reserve:hover{background:var(--gold-light);transform:translateY(-3px);box-shadow:0 15px 50px rgba(201,164,106,.18)}
+.final-actions{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+.film-button{display:inline-flex;align-items:center;gap:11px;padding:16px 22px;border:1px solid var(--line);border-radius:999px;background:rgba(7,8,7,.45);color:var(--ivory);cursor:pointer;font:500 9px DM Mono;letter-spacing:.13em;text-transform:uppercase;backdrop-filter:blur(14px);transition:.35s var(--ease)}
+.film-button span{color:var(--gold-light)}.film-button:hover{border-color:var(--gold);transform:translateY(-3px)}
 .final-note{display:block;margin-top:24px;font:300 8px DM Mono;letter-spacing:.15em;color:var(--muted)}
 
 .callout{position:absolute;font:400 8px DM Mono;letter-spacing:.15em;display:grid;gap:5px;opacity:0;transition:opacity .4s;pointer-events:none}
@@ -112,6 +115,9 @@ h2{font:500 clamp(40px,4.4vw,68px)/1.02 Playfair Display,serif;letter-spacing:-.
 .performance b{font-weight:400;color:rgba(241,234,220,.65)}.performance i{width:3px;height:3px;border-radius:50%;background:#61d89b;box-shadow:0 0 6px #61d89b}.performance small{font-size:7px}
 .fallback{position:fixed;inset:0;z-index:200;background:#080908;display:grid;place-content:center;text-align:center;padding:30px}.fallback h1{font:500 42px Playfair Display}.fallback p{color:var(--muted)}
 .fallback[hidden]{display:none}
+.film-overlay{position:fixed;inset:0;z-index:150;display:grid;place-items:center;padding:5vw;background:rgba(3,4,3,.92);backdrop-filter:blur(24px)}
+.film-overlay[hidden]{display:none}.film-overlay video{width:min(1280px,92vw);max-height:82vh;box-shadow:0 35px 120px rgba(0,0,0,.75);border:1px solid rgba(201,164,106,.28)}
+.film-close{position:absolute;right:3vw;top:3vw;background:none;color:var(--ivory);cursor:pointer;font:400 9px DM Mono;letter-spacing:.18em}
 .reveal{will-change:transform,opacity}
 
 @media(max-width:800px){

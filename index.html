@@ -117,7 +117,10 @@
         <h2 class="reveal">CANH GIỜ<br><em>105 Meridian</em></h2>
         <div class="edition reveal"><span>No.</span><b>001</b><i>/ 105</i></div>
         <p class="price reveal">48.500.000 ₫</p>
-        <button class="reserve reveal" type="button"><span>Yêu cầu xem riêng</span><i>↗</i></button>
+        <div class="final-actions reveal">
+          <button class="reserve" type="button"><span>Yêu cầu xem riêng</span><i>↗</i></button>
+          <button class="film-button" id="filmButton" type="button"><span>▶</span> Xem phim Blender</button>
+        </div>
         <small class="final-note reveal">Mỗi chiếc khắc số riêng · Bảo hành 5 năm · Giao tận tay</small>
       </article>
     </section>
@@ -130,6 +133,11 @@
   <div class="fallback" id="fallback" hidden>
     <h1>Trình duyệt chưa hỗ trợ WebGL.</h1>
     <p>Hãy mở trang bằng Chrome, Edge hoặc Safari mới nhất.</p>
+  </div>
+
+  <div class="film-overlay" id="filmOverlay" hidden role="dialog" aria-modal="true" aria-label="Phim sản phẩm CANH GIỜ 105">
+    <button class="film-close" id="filmClose" type="button" aria-label="Đóng phim">ĐÓNG ×</button>
+    <video id="productFilm" controls playsinline preload="metadata" src="./assets/canh-gio-105-blender.mp4"></video>
   </div>
 
   <script src="./vendor/gsap.min.js"></script>
