@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070807">
+  <title>CANH GIỜ 105 — A mechanical story in 3D</title>
+  <meta name="description" content="Một trải nghiệm đồng hồ cơ 3D điều khiển bằng cuộn trang.">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <div class="boot" id="boot" aria-live="polite">
+    <div class="boot__mark">CG</div>
+    <div class="boot__line"><span></span></div>
+    <p>Đang lên dây cót</p>
+  </div>
+
+  <canvas id="scene" aria-label="Mô hình ba chiều đồng hồ CANH GIỜ 105"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#origin" aria-label="CANH GIỜ, về đầu trang">
+      <span class="brand__seal">105</span>
+      <span>CANH GIỜ<br><i>VIỆT NAM</i></span>
+    </a>
+    <div class="chapter-status">
+      <span id="chapterNumber">01</span>
+      <div><b id="chapterName">Khởi nguyên</b><small>CUỘN ĐỂ KHÁM PHÁ</small></div>
+    </div>
+    <button class="sound" id="soundToggle" type="button" aria-label="Bật âm thanh" aria-pressed="false">
+      <span></span><span></span><span></span><span></span>
+      <b>ÂM THANH</b>
+    </button>
+  </header>
+
+  <aside class="rail" aria-label="Các chương">
+    <div class="rail__track"><i id="railFill"></i></div>
+    <a href="#origin" data-section="0"><b>01</b><span>Khởi nguyên</span></a>
+    <a href="#case" data-section="1"><b>02</b><span>Vỏ máy</span></a>
+    <a href="#movement" data-section="2"><b>03</b><span>Bộ máy</span></a>
+    <a href="#precision" data-section="3"><b>04</b><span>Nhịp đập</span></a>
+    <a href="#craft" data-section="4"><b>05</b><span>Chế tác</span></a>
+    <a href="#edition" data-section="5"><b>06</b><span>Sở hữu</span></a>
+  </aside>
+
+  <div class="mode-switch" role="group" aria-label="Chế độ hiển thị mô hình">
+    <button type="button" data-mode="cinema" class="is-active">Điện ảnh</button>
+    <button type="button" data-mode="anatomy">Giải phẫu</button>
+    <button type="button" data-mode="xray">X-quang</button>
+  </div>
+
+  <main id="story">
+    <section class="chapter chapter--hero" id="origin" data-name="Khởi nguyên" data-index="0">
+      <div class="hero-copy">
+        <div class="eyebrow reveal">KINH TUYẾN 105° ĐÔNG · HÀ NỘI</div>
+        <h1 class="hero-title reveal">Thời gian<br><em>mang hình hài.</em></h1>
+        <p class="lead reveal">Một cỗ máy cơ học gồm hàng chục linh kiện độc lập, chuyển động theo từng milimet bạn cuộn.</p>
+      </div>
+      <div class="scroll-cue reveal"><span>CUỘN ĐỂ LÊN DÂY CÓT</span><i></i></div>
+    </section>
+
+    <section class="chapter chapter--right" id="case" data-name="Vỏ máy" data-index="1">
+      <article class="copy-panel">
+        <div class="eyebrow reveal">01 · KIẾN TRÚC</div>
+        <h2 class="reveal">Ánh sáng được<br>giữ trong thép.</h2>
+        <p class="reveal">Vỏ 40 mm gồm bảy lớp độc lập. Vành bezel vát kép bắt sáng. Kính sapphire mô phỏng khúc xạ vật lý, không phải lớp ảnh phủ.</p>
+        <dl class="spec-grid reveal">
+          <div><dt>904L</dt><dd>THÉP KHÔNG GỈ</dd></div>
+          <div><dt>40 mm</dt><dd>ĐƯỜNG KÍNH</dd></div>
+          <div><dt>10 ATM</dt><dd>KHÁNG NƯỚC</dd></div>
+        </dl>
+      </article>
+      <div class="callout callout--case" data-callout><span></span><b>BEZEL 18K</b><small>VÁT KÉP · 48 RÃNH</small></div>
+      <div class="callout callout--glass" data-callout><span></span><b>SAPPHIRE</b><small>TRUYỀN SÁNG 96%</small></div>
+    </section>
+
+    <section class="chapter chapter--left" id="movement" data-name="Bộ máy" data-index="2">
+      <article class="copy-panel">
+        <div class="eyebrow reveal">02 · GIẢI PHẪU</div>
+        <h2 class="reveal">Không che giấu<br>bất kỳ chuyển động nào.</h2>
+        <p class="reveal">Mỗi lớp tách theo trục sâu: kính, kim, mặt số, cầu máy, bánh răng và nắp lưng. Chuyển sang “Giải phẫu” để giữ trạng thái bung máy.</p>
+        <div class="movement-signature reveal">
+          <span class="pulse-dot"></span>
+          <div><b>CALIBRE M-105</b><small>SELF-WINDING · 26 JEWELS</small></div>
+        </div>
+      </article>
+      <div class="callout callout--gear" data-callout><span></span><b>TRAIN BÁNH RĂNG</b><small>TRUYỀN MÔ-MEN</small></div>
+      <div class="callout callout--balance" data-callout><span></span><b>BÁNH LẮC</b><small>4 HZ · 28.800 VPH</small></div>
+    </section>
+
+    <section class="chapter chapter--center" id="precision" data-name="Nhịp đập" data-index="3">
+      <article class="precision-card">
+        <div class="eyebrow reveal">03 · NHỊP ĐẬP</div>
+        <div class="precision-number reveal"><span>−2</span><i>/</i><span>+2</span></div>
+        <p class="reveal">GIÂY MỖI NGÀY</p>
+        <div class="frequency reveal"><i></i><b id="beatCounter">28.800</b><span>dao động mỗi giờ</span></div>
+      </article>
+    </section>
+
+    <section class="chapter chapter--right" id="craft" data-name="Chế tác" data-index="4">
+      <article class="copy-panel">
+        <div class="eyebrow reveal">04 · HOÀN THIỆN</div>
+        <h2 class="reveal">Dấu tay còn lại<br>trên từng bề mặt.</h2>
+        <p class="reveal">Vân tròn trên bánh đà. Cạnh cầu máy đánh bóng. Mỗi vít xanh nhiệt là một điểm sáng có chủ ý trong cấu trúc vàng champagne.</p>
+        <ol class="process reveal">
+          <li><b>09</b><span>giờ đánh bóng thủ công</span></li>
+          <li><b>37</b><span>lần kiểm tra hoàn thiện</span></li>
+          <li><b>21</b><span>ngày cân chỉnh bộ máy</span></li>
+        </ol>
+      </article>
+    </section>
+
+    <section class="chapter chapter--final" id="edition" data-name="Sở hữu" data-index="5">
+      <article class="final-card">
+        <div class="eyebrow reveal">BỘ SƯU TẬP ĐẦU TIÊN</div>
+        <h2 class="reveal">CANH GIỜ<br><em>105 Meridian</em></h2>
+        <div class="edition reveal"><span>No.</span><b>001</b><i>/ 105</i></div>
+        <p class="price reveal">48.500.000 ₫</p>
+        <button class="reserve reveal" type="button"><span>Yêu cầu xem riêng</span><i>↗</i></button>
+        <small class="final-note reveal">Mỗi chiếc khắc số riêng · Bảo hành 5 năm · Giao tận tay</small>
+      </article>
+    </section>
+  </main>
+
+  <div class="performance" id="performance" aria-hidden="true">
+    <span>WEBGL 2</span><b id="modelSource">BLENDER GLB</b><i></i><small>CINEMATIC</small>
+  </div>
+
+  <div class="fallback" id="fallback" hidden>
+    <h1>Trình duyệt chưa hỗ trợ WebGL.</h1>
+    <p>Hãy mở trang bằng Chrome, Edge hoặc Safari mới nhất.</p>
+  </div>
+
+  <script src="./vendor/gsap.min.js"></script>
+  <script src="./vendor/ScrollTrigger.min.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
